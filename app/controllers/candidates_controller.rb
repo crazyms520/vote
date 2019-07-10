@@ -17,7 +17,9 @@ class CandidatesController < ApplicationController
             redirect_to '/candidates'
         else
             #NG
-            render plain: "error"
+            flash[:notice] = "error!"
+            render :new
+            
         end
         # render plain: params[:candidate]
     end
