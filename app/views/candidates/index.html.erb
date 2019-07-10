@@ -8,7 +8,26 @@
 </head>
 <body>
     <%= flash[:notice] %>
-    <h1>Hello</h1>
+
+    <h1>Candidates List</h1>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Party</td>
+            <td>Age</td>
+            <!-- <td>Politics</td> -->
+            <td>Action</td>
+        </tr>
+        <% @candidates.each do |candidate| %>
+        <tr>
+            <td><%= link_to candidate.name, candidate_path(candidate.id) %></td>
+            <td><%= candidate.party %></td>
+            <td><%= candidate.age %></td>
+            <!-- <td><%= candidate.politics %></td> -->
+            <td>Action</td>
+        </tr>
+        <% end %>
+    </table>
     <a href="/candidates/new">Add Candidates</a>
 </body>
 </html>
